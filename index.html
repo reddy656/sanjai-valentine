@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Sanjai ❤️</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Courier New", monospace;
+  background: linear-gradient(135deg,#ffb3c6,#ffc8dd);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+}
+.container{
+  background:rgba(0,0,0,0.55);
+  padding:22px;
+  border-radius:20px;
+  max-width:380px;
+  width:90%;
+  text-align:center;
+}
+img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #ffd6e0;
+  margin-bottom:15px;
+}
+.terminal{
+  text-align:left;
+  font-size:14px;
+  min-height:120px;
+}
+.cursor{
+  display:inline-block;
+  width:8px;
+  background:white;
+  animation:blink 1s infinite;
+}
+@keyframes blink{
+  0%,50%{opacity:1}
+  51%,100%{opacity:0}
+}
+button{
+  background:#ff4d6d;
+  border:none;
+  padding:10px 20px;
+  border-radius:20px;
+  color:white;
+  font-size:15px;
+  margin-top:15px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <img src="https://ibb.co/LhpQC4qb" alt="Sanjai">
+  
+
+  <div class="terminal" id="terminal"></div>
+
+  <button onclick="playMusic()">Tap for Love 💖</button>
+
+  <audio id="music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+  </audio>
+</div>
+
+<script>
+const text = [
+  "Initializing love.exe...",
+  "Loading feelings...",
+  "Hey Sanjai ❤️",
+  "You make my world softer 🌸",
+  "Will you be my Valentine? 💕"
+];
+
+let i = 0, j = 0;
+const terminal = document.getElementById("terminal");
+
+function type() {
+  if (i < text.length) {
+    if (j < text[i].length) {
+      terminal.innerHTML += text[i][j];
+      j++;
+      setTimeout(type, 60);
+    } else {
+      terminal.innerHTML += "<br>";
+      j = 0;
+      i++;
+      setTimeout(type, 400);
+    }
+  } else {
+    terminal.innerHTML += '<span class="cursor"></span>';
+  }
+}
+type();
+
+function playMusic(){
+  document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
